@@ -34,10 +34,6 @@ whose first occurring index is 3.
 #include <iostream>
 using namespace std;
 
-void SmallestInteger(int arr[], int len)
-{
-}
-
 int main()
 {
 
@@ -53,7 +49,39 @@ int main()
         cin >> arr[i];
     }
 
-    SmallestInteger(arr, arrayLength);
+    // MinIndexFunction(arr, arrayLength);
+
+    const int N = 1e6 + 2;
+
+    int idx[N];
+
+    int minidx = INT_MAX;
+
+    for (int i = 0; i < N; i++)
+    {
+        idx[i] = -1;
+    }
+
+    for (int i = 0; i < arrayLength; i++)
+    {
+        if (idx[arr[i]] != -1)
+        {
+            minidx = min(minidx, arr[i]);
+        }
+        else
+        {
+            idx[arr[i]] = i;
+        }
+    }
+
+    if (minidx == INT_MAX)
+    {
+        cout << "NO Duplicates found";
+    }
+    else
+    {
+        cout << "min Index of duplicate element is:- " << minidx;
+    }
 
     return 0;
 }
