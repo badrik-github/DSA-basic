@@ -32,6 +32,7 @@ whose first occurring index is 3.
 */
 
 #include <iostream>
+#include <climits>
 using namespace std;
 
 int main()
@@ -50,23 +51,23 @@ int main()
     }
 
     // MinIndexFunction(arr, arrayLength);
-
-    const int N = 1e6 + 2;
+    int N = 1e6;
 
     int idx[N];
-
-    int minidx = INT_MAX;
 
     for (int i = 0; i < N; i++)
     {
         idx[i] = -1;
     }
+    cout << "h1";
+
+    int minidx = INT_MAX;
 
     for (int i = 0; i < arrayLength; i++)
     {
         if (idx[arr[i]] != -1)
         {
-            minidx = min(minidx, arr[i]);
+            minidx = min(minidx, idx[arr[i]]);
         }
         else
         {
