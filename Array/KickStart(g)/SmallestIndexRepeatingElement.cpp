@@ -31,6 +31,8 @@ whose first occurring index is 3.
 
 */
 
+// A Better solution is possible using hash map
+
 #include <iostream>
 #include <climits>
 using namespace std;
