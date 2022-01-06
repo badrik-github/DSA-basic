@@ -9,7 +9,13 @@
 /*
 
 Problem
-Write a program to take an user defined square matrix of size N and print it Transpose
+Given a square matrix A & its number of rows (or columns) N, return the
+transpose of A.
+The transpose of a matrix is the matrix flipped over it's main diagonal,
+switching the row and column indices of the matrix.
+
+Constraints
+1 <= N <= 1000
 */
 
 #include <iostream>
