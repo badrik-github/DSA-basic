@@ -45,9 +45,58 @@ Constraints:
 #include <iostream>
 using namespace std;
 
-int KSmallsest(int arr[], int len)
+void swap(int *x, int *y)
 {
+    int t;
+    t = *x;
+    *x = *y;
+    *y = t;
 }
+
+void quickSort(int arr[], int first, int last)
+{
+
+    if (first < last)
+    {
+
+        int i = first;
+        int j = last;
+        int piv = first;
+
+        while (i < j)
+        {
+
+            while (arr[i] <= arr[piv] && i < last)
+            {
+
+                i++;
+            }
+
+            while (arr[j] > arr[piv])
+            {
+
+                j--;
+            }
+
+            if (i < j)
+            {
+                swap(&arr[i], &arr[j]);
+            }
+        }
+
+        swap(&arr[piv], &arr[j]);
+        quickSort(arr, 0, j - 1);
+        quickSort(arr, j + 1, last);
+    }
+}
+
+// int KSmallsest(int arr[], int len)
+// {
+
+//     quickSort(arr, 0, len - 1);
+
+//     cout<<"the "
+// }
 
 int main()
 {
@@ -64,9 +113,13 @@ int main()
         cin >> arr[i];
     }
 
-    int ans = KSmallsest(arr, arrayLength);
+    int k;
+    cout << "enter the kth element :- ";
+    cin >> k;
 
-    cout << K << " th smallest element is :-" << ans;
+    quickSort(arr, 0, arrayLength - 1);
+
+    cout << k << " th smallest element is :- " << arr[k - 1];
 
     return 0;
 }
