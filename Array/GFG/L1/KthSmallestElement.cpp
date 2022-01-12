@@ -90,14 +90,6 @@ void quickSort(int arr[], int first, int last)
     }
 }
 
-// int KSmallsest(int arr[], int len)
-// {
-
-//     quickSort(arr, 0, len - 1);
-
-//     cout<<"the "
-// }
-
 int main()
 {
 
