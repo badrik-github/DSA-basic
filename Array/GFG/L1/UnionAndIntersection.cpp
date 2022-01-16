@@ -50,10 +50,116 @@ using namespace std;
 
 void unionArray(int a1[], int a2[], int l1, int l2)
 {
+    int len = l1 + l2;
+    int result[len];
+
+    int i = 0;
+    int j = 0;
+
+    int count = 0;
+    while (i < l1 || j < l2)
+    {
+        if (a1[i] == a2[j])
+        {
+            result[count] = a1[i];
+            i++;
+            j++;
+            count++;
+        }
+        else if (a1[i] < a2[j])
+        {
+            if (i < (l1 - 1))
+            {
+                result[count] = a1[i];
+                i++;
+                count++;
+            }
+            else
+            {
+                result[count] = a2[j];
+                j++;
+                count++;
+            }
+        }
+        else
+        {
+
+            if (j < (l2 - 1))
+            {
+                result[count] = a2[j];
+                j++;
+                count++;
+            }
+            else
+            {
+                result[count] = a1[i];
+                i++;
+                count++;
+            }
+        }
+    }
+
+    cout << "Union is:- " << endl;
+    for (int i = 0; i < count; i++)
+    {
+        cout << result[i] << "-> ";
+    }
+    cout << endl;
 }
 
 void Intersection(int a1[], int a2[], int l1, int l2)
 {
+    int len = l1 <= l2 ? l1 : l2;
+    int intersection[len];
+
+    int i = 0;
+    int j = 0;
+
+    int count = 0;
+    while (i < l1 || j < l2)
+    {
+        if (a1[i] == a2[j])
+        {
+            intersection[count] = a1[i];
+            i++;
+            j++;
+            count++;
+        }
+        else if (a1[i] < a2[j])
+        {
+            if (i < (l1 - 1))
+            {
+                i++;
+            }
+            else
+            {
+                break;
+            }
+        }
+        else // if (a2[j] < a1[i])
+        {
+
+            if (j < (l2 - 1))
+            {
+                j++;
+            }
+            else
+            {
+                break;
+            }
+        }
+        // else
+        // {
+        //     break;
+        // }
+    }
+
+    cout << "Intersection is:- " << endl;
+    for (int i = 0; i < count; i++)
+    {
+        cout << intersection[i] << "-> ";
+    }
+    cout << endl;
 }
 
 int main()
@@ -82,6 +188,10 @@ int main()
         cout << "Element " << i << " :- ";
         cin >> a2[i];
     }
+
+    Intersection(a1, a2, l1, l2);
+
+    unionArray(a1, a2, l1, l2);
 
     return 0;
 }
