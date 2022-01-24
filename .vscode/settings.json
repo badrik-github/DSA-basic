@@ -2,5 +2,9 @@
     "cSpell.words": [
         "badrik"
     ],
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "xstring": "cpp",
+        "vector": "cpp"
+    }
 }
