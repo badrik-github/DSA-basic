@@ -48,39 +48,63 @@ Constraints:
 #include <vector>
 using namespace std;
 
-void Combination(int index, int sum, vector<int> output, int arr[], int length)
+void Combination(int index, int target, vector<int> arr, vector<int> ds, vector<vector<int>> &ans)
 {
-    if (sum == 0)
+
+    if (target == 0)
     {
-        for (int i = 0; i < output.size(); i++)
-        {
-            cout << output[i] << "->";
-        }
-        cout << endl;
+        ans.push_back(ds);
         return;
     }
 
-    if (index > length || sum < 0)
+    if (index >= arr.size() || target < 0)
     {
         return;
     }
 
-    output.push_back(arr[index]);
-    sum -= arr[index];
-    Combination(index + 1, sum, output, arr, length);
+    if (ds.empty() || ds.back() != arr[index])
+    {
+        ds.push_back(arr[index]);
+        Combination(index + 1, target - arr[index], arr, ds, ans);
+        ds.pop_back();
+    }
 
-    sum += arr[index];
-    output.pop_back();
-    Combination(index + 1, sum, output, arr, length);
+    Combination(index + 1, target, arr, ds, ans);
 }
 
 int main()
 {
-    int arr[7] = {10, 1, 2, 7, 6, 1, 5};
-    int k = 8;
-    vector<int> v1;
+    vector<int> arr;
+    int length;
+    cout << "Enter Length";
+    cin >> length;
 
-    Combination(0, k, v1, arr, 7);
+    for (int i = 0; i < length; i++)
+    {
+        int temp;
+        cin >> temp;
+        arr.push_back(temp);
+    }
+
+    int target;
+
+    cout << "Enter the Target";
+    cin >> target;
+
+    vector<vector<int>> ans;
+    vector<int> ds;
+
+    Combination(0, target, arr, ds, ans);
+    cout << ans.size();
+
+    for (int i = 0; i < ans.size(); i++)
+    {
+        for (int j = 0; j < ans[i].size(); j++)
+        {
+            cout << ans[i][j] << "->";
+        }
+        cout << endl;
+    }
 
     return 0;
 }
