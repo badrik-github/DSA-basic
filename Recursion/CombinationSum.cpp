@@ -79,7 +79,7 @@ int main()
     int k = 7;
     vector<int> v1;
 
-    CombinationA(0, 7, v1, arr, 4);
+    CombinationA(0, k, v1, arr, 4);
 
     return 0;
 }
