@@ -7,6 +7,7 @@
         "xstring": "cpp",
         "vector": "cpp",
         "iosfwd": "cpp",
-        "xlocale": "cpp"
+        "xlocale": "cpp",
+        "set": "cpp"
     }
 }

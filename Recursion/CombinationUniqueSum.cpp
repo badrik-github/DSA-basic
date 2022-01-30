@@ -62,14 +62,33 @@ void Combination(int index, int target, vector<int> arr, vector<int> ds, vector<
         return;
     }
 
-    if (ds.empty() || ds.back() != arr[index])
-    {
-        ds.push_back(arr[index]);
-        Combination(index + 1, target - arr[index], arr, ds, ans);
-        ds.pop_back();
-    }
+    ds.push_back(arr[index]);
+    Combination(index + 1, target - arr[index], arr, ds, ans);
+    ds.pop_back();
 
     Combination(index + 1, target, arr, ds, ans);
+}
+
+void Combination2(int index, int target, vector<int> arr, vector<int> ds, vector<vector<int>> &ans)
+{
+    if (target == 0)
+    {
+        ans.push_back(ds);
+        return;
+    }
+
+    for (int i = index; i < arr.size(); i++)
+    {
+        if (i > index && arr[i] == arr[i - 1])
+            continue;
+
+        if (arr[i] > target)
+            break;
+
+        ds.push_back(arr[i]);
+        Combination2(i + 1, target - arr[i], arr, ds, ans);
+        ds.pop_back();
+    }
 }
 
 int main()
@@ -94,8 +113,7 @@ int main()
     vector<vector<int>> ans;
     vector<int> ds;
 
-    Combination(0, target, arr, ds, ans);
-    cout << ans.size();
+    Combination2(0, target, arr, ds, ans);
 
     for (int i = 0; i < ans.size(); i++)
     {
