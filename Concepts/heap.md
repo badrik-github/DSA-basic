@@ -29,7 +29,7 @@
 
 ## Time Complexity
 
-# Building a Min_heap or Max_heap takes a time complexity of O(n*log(n))
+- Building a Min_heap or Max_heap takes a time complexity of O(n*log(n))
 - As heapify takes log(n) and to create min or max heap it is called n times so it is O(n*log(n))
 
 # Time complexity of deleting element in heap
