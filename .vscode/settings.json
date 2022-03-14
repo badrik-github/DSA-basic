@@ -8,6 +8,13 @@
         "vector": "cpp",
         "iosfwd": "cpp",
         "xlocale": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "stack": "cpp",
+        "iostream": "cpp",
+        "xhash": "cpp",
+        "utility": "cpp",
+        "xtree": "cpp",
+        "map": "cpp",
+        "unordered_map": "cpp"
     }
 }
